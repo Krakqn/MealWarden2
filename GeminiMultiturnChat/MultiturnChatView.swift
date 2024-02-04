@@ -2,7 +2,7 @@
 //  MultiturnChatView.swift
 //  GeminiMultiturnChat
 //
-//  Created by Anup D'Souza
+//  Created by Sri Yanamandra
 //
 
 import SwiftUI
@@ -118,11 +118,10 @@ struct MultiturnChatView: View {
                   .clipShape(RoundedRectangle(cornerRadius: 8))
                   .markdownMargin(top: .zero, bottom: .em(0.8))
               }
-            .padding(.all, 15)
+            .padding(.vertical, 15)
+            .padding((message.role == .model) ? .leading : .trailing, 20) // this randomly fixed the broken spacing
+            .padding((message.role == .model) ? .trailing : .leading, 15)
             .background(message.role == .model ? (colorScheme == .dark ? Color.gray.opacity(0.5) : Color.gray.opacity(0.2)) : (colorScheme == .dark ? Color.blue.opacity(1) : Color.blue.opacity(0.7)))
-                //.font(.title3)
-                
-                //.foregroundStyle(message.role == .model ? (colorScheme == .dark ? Color.white : Color.black) : Color.white)
         }
     }
     

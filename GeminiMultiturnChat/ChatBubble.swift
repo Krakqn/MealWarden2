@@ -2,7 +2,7 @@
 //  ChatBubble.swift
 //  GeminiChat
 //
-//  Created by Anup D'Souza
+//  Created by Sri Yanamandra
 //
 
 import Foundation
