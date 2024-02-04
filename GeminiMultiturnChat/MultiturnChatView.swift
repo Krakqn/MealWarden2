@@ -101,8 +101,8 @@ struct MultiturnChatView: View {
             Text(message.message)
                 .font(.title3)
                 .padding(.all, 20)
-                .foregroundStyle(.white)
-                .background(message.role == .model ? Color.gray.opacity(0.5) : Color.blue.opacity(1))
+                .foregroundStyle(colorScheme == .dark ? Color.white : Color.black)
+                .background(message.role == .model ? (colorScheme == .dark ? Color.gray.opacity(0.5) : Color.gray.opacity(0.2)) : Color.blue.opacity(1))
         }
     }
     
