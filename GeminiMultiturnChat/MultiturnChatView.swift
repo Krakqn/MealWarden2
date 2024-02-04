@@ -104,6 +104,7 @@ struct MultiturnChatView: View {
               ForegroundColor(message.role == .model ? (colorScheme == .dark ? .white : .black) : .white)
             }
             .markdownBlockStyle(\.codeBlock) { configuration in
+              // Source: https://gonzalezreal.github.io/2023/02/18/better-markdown-rendering-in-swiftui.html
                   ScrollView(.horizontal) {
                     configuration.label
                       .relativeLineSpacing(.em(0.25))
