@@ -33,6 +33,10 @@ struct MultiturnChatView: View {
                         chatMessageView(chatMessage)
                     }
                 }
+//                .swipe(
+//                    down: {
+//                      textIsFocused = false //https://stackoverflow.com/a/73922536
+//                })
                 .onTapGesture {
                   textIsFocused = false
                 }
@@ -83,6 +87,7 @@ struct MultiturnChatView: View {
               })
             }
         }
+        .scrollDismissesKeyboard(.interactively)
         .foregroundStyle(.white)
         .padding()
         .background {
@@ -128,6 +133,23 @@ struct MultiturnChatView: View {
         timer = nil
     }
 }
+
+//extension View {
+//    func swipe(
+//        up: @escaping (() -> Void) = {},
+//        down: @escaping (() -> Void) = {},
+//        left: @escaping (() -> Void) = {},
+//        right: @escaping (() -> Void) = {}
+//    ) -> some View {
+//        return self.gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+//            .onEnded({ value in
+//                if value.translation.width < 0 { left() }
+//                if value.translation.width > 0 { right() }
+//                if value.translation.height < 0 { up() }
+//                if value.translation.height > 0 { down() }
+//            }))
+//    }
+//}
 
 //#Preview {
 //    MultiturnChatView()
