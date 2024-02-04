@@ -33,6 +33,9 @@ struct MultiturnChatView: View {
                         chatMessageView(chatMessage)
                     }
                 }
+                .onTapGesture {
+                  textIsFocused = false
+                }
                 .onChange(of: chatService.messages) { _, _ in
                     guard let recentMessage = chatService.messages.last else { return }
                     DispatchQueue.main.async {
