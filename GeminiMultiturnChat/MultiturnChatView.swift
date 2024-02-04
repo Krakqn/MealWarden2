@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct MultiturnChatView: View {
     @State var textInput = ""
@@ -98,11 +99,29 @@ struct MultiturnChatView: View {
     // MARK: Chat message view
     @ViewBuilder func chatMessageView(_ message: ChatMessage) -> some View {
         ChatBubble(direction: message.role == .model ? .left : .right) {
-            Text(message.message)
-                .font(.title3)
-                .padding(.all, 20)
-                .foregroundStyle(message.role == .model ? (colorScheme == .dark ? Color.white : Color.black) : Color.white)
-                .background(message.role == .model ? (colorScheme == .dark ? Color.gray.opacity(0.5) : Color.gray.opacity(0.2)) : (colorScheme == .dark ? Color.blue.opacity(1) : Color.blue.opacity(0.7)))
+            Markdown(message.message)
+            .markdownTextStyle {
+              ForegroundColor(message.role == .model ? (colorScheme == .dark ? .white : .black) : .white)
+            }
+            .markdownBlockStyle(\.codeBlock) { configuration in
+                  ScrollView(.horizontal) {
+                    configuration.label
+                      .relativeLineSpacing(.em(0.25))
+                      .markdownTextStyle {
+                        FontFamilyVariant(.monospaced)
+                        FontSize(.em(0.85))
+                      }
+                      .padding()
+                  }
+                  .background(Color(.secondarySystemBackground))
+                  .clipShape(RoundedRectangle(cornerRadius: 8))
+                  .markdownMargin(top: .zero, bottom: .em(0.8))
+              }
+            .padding(.all, 15)
+            .background(message.role == .model ? (colorScheme == .dark ? Color.gray.opacity(0.5) : Color.gray.opacity(0.2)) : (colorScheme == .dark ? Color.blue.opacity(1) : Color.blue.opacity(0.7)))
+                //.font(.title3)
+                
+                //.foregroundStyle(message.role == .model ? (colorScheme == .dark ? Color.white : Color.black) : Color.white)
         }
     }
     

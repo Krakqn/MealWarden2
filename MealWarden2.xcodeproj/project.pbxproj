@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 438C327D2B70261300A10A4E /* MarkdownUI */; };
 		E42126412B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42126402B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift */; };
 		E42126432B306A8C00B5D1E6 /* MultiturnChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42126422B306A8C00B5D1E6 /* MultiturnChatView.swift */; };
 		E42126452B306A8E00B5D1E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42126442B306A8E00B5D1E6 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E421265B2B306E7000B5D1E6 /* GoogleGenerativeAI in Frameworks */,
+				438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 			name = GeminiMultiturnChat;
 			packageProductDependencies = (
 				E421265A2B306E7000B5D1E6 /* GoogleGenerativeAI */,
+				438C327D2B70261300A10A4E /* MarkdownUI */,
 			);
 			productName = GeminiMultiturnChat;
 			productReference = E421263D2B306A8C00B5D1E6 /* GeminiMultiturnChat.app */;
@@ -141,6 +144,7 @@
 			mainGroup = E42126342B306A8B00B5D1E6;
 			packageReferences = (
 				E42126592B306E7000B5D1E6 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = E421263E2B306A8C00B5D1E6 /* Products */;
 			projectDirPath = "";
@@ -382,6 +386,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
 		E42126592B306E7000B5D1E6 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/generative-ai-swift";
@@ -393,6 +405,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		438C327D2B70261300A10A4E /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
 		E421265A2B306E7000B5D1E6 /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E42126592B306E7000B5D1E6 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
