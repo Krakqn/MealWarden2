@@ -24,7 +24,7 @@ struct ChatMessage: Identifiable, Equatable {
 class ChatService {
     private var chat: Chat?
     private(set) var messages = [ChatMessage]()
-    private(set) var loadingResponse = false
+    private(set) var loadingResponse = false  
     
     func sendMessage(_ message: String) {
         loadingResponse = true

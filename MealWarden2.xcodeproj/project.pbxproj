@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 438C327D2B70261300A10A4E /* MarkdownUI */; };
+		43D542FD2BB77E7B000A4281 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D542FC2BB77E7B000A4281 /* ContentView.swift */; };
+		43D543002BB77EB7000A4281 /* OpenFoodFactsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 43D542FF2BB77EB7000A4281 /* OpenFoodFactsSDK */; };
+		43D543022BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */; };
+		43D543042BB77EE1000A4281 /* BarcodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */; };
+		43D543062BB77EEC000A4281 /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543052BB77EEC000A4281 /* ScannerOverlayView.swift */; };
+		43D543082BB77EF8000A4281 /* BarcodeScannerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */; };
 		E42126412B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42126402B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift */; };
 		E42126432B306A8C00B5D1E6 /* MultiturnChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42126422B306A8C00B5D1E6 /* MultiturnChatView.swift */; };
 		E42126452B306A8E00B5D1E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42126442B306A8E00B5D1E6 /* Assets.xcassets */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43D542FC2BB77E7B000A4281 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerControllerProcessing.swift; sourceTree = "<group>"; };
+		43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerController.swift; sourceTree = "<group>"; };
+		43D543052BB77EEC000A4281 /* ScannerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
+		43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerScreen.swift; sourceTree = "<group>"; };
+		43D543092BB78055000A4281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E421263D2B306A8C00B5D1E6 /* GeminiMultiturnChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeminiMultiturnChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42126402B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiMultiturnChatApp.swift; sourceTree = "<group>"; };
 		E42126422B306A8C00B5D1E6 /* MultiturnChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiturnChatView.swift; sourceTree = "<group>"; };
@@ -40,12 +52,25 @@
 			files = (
 				E421265B2B306E7000B5D1E6 /* GoogleGenerativeAI in Frameworks */,
 				438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */,
+				43D543002BB77EB7000A4281 /* OpenFoodFactsSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43D542FB2BB77ACF000A4281 /* BarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				43D542FC2BB77E7B000A4281 /* ContentView.swift */,
+				43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */,
+				43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */,
+				43D543052BB77EEC000A4281 /* ScannerOverlayView.swift */,
+				43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */,
+			);
+			path = BarcodeScanner;
+			sourceTree = "<group>";
+		};
 		E42126342B306A8B00B5D1E6 = {
 			isa = PBXGroup;
 			children = (
@@ -65,10 +90,12 @@
 		E421263F2B306A8C00B5D1E6 /* GeminiMultiturnChat */ = {
 			isa = PBXGroup;
 			children = (
+				43D543092BB78055000A4281 /* Info.plist */,
 				E42126402B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift */,
 				E42126422B306A8C00B5D1E6 /* MultiturnChatView.swift */,
 				E42126572B306B3C00B5D1E6 /* ChatService.swift */,
 				E42126542B306B2300B5D1E6 /* ChatBubble.swift */,
+				43D542FB2BB77ACF000A4281 /* BarcodeScanner */,
 				E42126532B306B2300B5D1E6 /* ChatBubbleShape.swift */,
 				E421264E2B306AA100B5D1E6 /* Config */,
 				E42126442B306A8E00B5D1E6 /* Assets.xcassets */,
@@ -113,6 +140,7 @@
 			packageProductDependencies = (
 				E421265A2B306E7000B5D1E6 /* GoogleGenerativeAI */,
 				438C327D2B70261300A10A4E /* MarkdownUI */,
+				43D542FF2BB77EB7000A4281 /* OpenFoodFactsSDK */,
 			);
 			productName = GeminiMultiturnChat;
 			productReference = E421263D2B306A8C00B5D1E6 /* GeminiMultiturnChat.app */;
@@ -145,6 +173,7 @@
 			packageReferences = (
 				E42126592B306E7000B5D1E6 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 				438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				43D542FE2BB77EB7000A4281 /* XCRemoteSwiftPackageReference "openfoodfacts-swift" */,
 			);
 			productRefGroup = E421263E2B306A8C00B5D1E6 /* Products */;
 			projectDirPath = "";
@@ -173,12 +202,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D543062BB77EEC000A4281 /* ScannerOverlayView.swift in Sources */,
 				E42126432B306A8C00B5D1E6 /* MultiturnChatView.swift in Sources */,
 				E42126562B306B2300B5D1E6 /* ChatBubble.swift in Sources */,
+				43D542FD2BB77E7B000A4281 /* ContentView.swift in Sources */,
+				43D543042BB77EE1000A4281 /* BarcodeScannerController.swift in Sources */,
 				E42126552B306B2300B5D1E6 /* ChatBubbleShape.swift in Sources */,
 				E42126522B306AA200B5D1E6 /* APIKey.swift in Sources */,
 				E42126412B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift in Sources */,
+				43D543022BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift in Sources */,
 				E42126582B306B3C00B5D1E6 /* ChatService.swift in Sources */,
+				43D543082BB77EF8000A4281 /* BarcodeScannerScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +349,11 @@
 				DEVELOPMENT_TEAM = NZG8L54PXU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeminiMultiturnChat/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OFFSDK-Example";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To capture product photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To pick photos showing product";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,6 +383,11 @@
 				DEVELOPMENT_TEAM = NZG8L54PXU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeminiMultiturnChat/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OFFSDK-Example";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To capture product photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To pick photos showing product";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -394,6 +438,14 @@
 				minimumVersion = 2.3.0;
 			};
 		};
+		43D542FE2BB77EB7000A4281 /* XCRemoteSwiftPackageReference "openfoodfacts-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openfoodfacts/openfoodfacts-swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		E42126592B306E7000B5D1E6 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/generative-ai-swift";
@@ -409,6 +461,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
 			productName = MarkdownUI;
+		};
+		43D542FF2BB77EB7000A4281 /* OpenFoodFactsSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43D542FE2BB77EB7000A4281 /* XCRemoteSwiftPackageReference "openfoodfacts-swift" */;
+			productName = OpenFoodFactsSDK;
 		};
 		E421265A2B306E7000B5D1E6 /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
