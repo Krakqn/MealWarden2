@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431B3D7E2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B3D7D2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift */; };
 		438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 438C327D2B70261300A10A4E /* MarkdownUI */; };
 		43D542FD2BB77E7B000A4281 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D542FC2BB77E7B000A4281 /* ContentView.swift */; };
 		43D543002BB77EB7000A4281 /* OpenFoodFactsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 43D542FF2BB77EB7000A4281 /* OpenFoodFactsSDK */; };
@@ -14,6 +15,7 @@
 		43D543042BB77EE1000A4281 /* BarcodeScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */; };
 		43D543062BB77EEC000A4281 /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543052BB77EEC000A4281 /* ScannerOverlayView.swift */; };
 		43D543082BB77EF8000A4281 /* BarcodeScannerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */; };
+		43D5430B2BB78678000A4281 /* ingredientsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5430A2BB78678000A4281 /* ingredientsTest.swift */; };
 		E42126412B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42126402B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift */; };
 		E42126432B306A8C00B5D1E6 /* MultiturnChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42126422B306A8C00B5D1E6 /* MultiturnChatView.swift */; };
 		E42126452B306A8E00B5D1E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42126442B306A8E00B5D1E6 /* Assets.xcassets */; };
@@ -27,12 +29,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431B3D7D2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsAPI.swift; sourceTree = "<group>"; };
 		43D542FC2BB77E7B000A4281 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerControllerProcessing.swift; sourceTree = "<group>"; };
 		43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerController.swift; sourceTree = "<group>"; };
 		43D543052BB77EEC000A4281 /* ScannerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
 		43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerScreen.swift; sourceTree = "<group>"; };
 		43D543092BB78055000A4281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		43D5430A2BB78678000A4281 /* ingredientsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredientsTest.swift; sourceTree = "<group>"; };
 		E421263D2B306A8C00B5D1E6 /* GeminiMultiturnChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeminiMultiturnChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42126402B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiMultiturnChatApp.swift; sourceTree = "<group>"; };
 		E42126422B306A8C00B5D1E6 /* MultiturnChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiturnChatView.swift; sourceTree = "<group>"; };
@@ -59,14 +63,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		431B3D7C2BBA8BAD00A47D64 /* OpenFoodFacts */ = {
+			isa = PBXGroup;
+			children = (
+				431B3D7D2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift */,
+			);
+			path = OpenFoodFacts;
+			sourceTree = "<group>";
+		};
 		43D542FB2BB77ACF000A4281 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
 				43D542FC2BB77E7B000A4281 /* ContentView.swift */,
 				43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */,
 				43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */,
+				431B3D7C2BBA8BAD00A47D64 /* OpenFoodFacts */,
 				43D543052BB77EEC000A4281 /* ScannerOverlayView.swift */,
 				43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */,
+				43D5430A2BB78678000A4281 /* ingredientsTest.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -204,8 +218,10 @@
 			files = (
 				43D543062BB77EEC000A4281 /* ScannerOverlayView.swift in Sources */,
 				E42126432B306A8C00B5D1E6 /* MultiturnChatView.swift in Sources */,
+				431B3D7E2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift in Sources */,
 				E42126562B306B2300B5D1E6 /* ChatBubble.swift in Sources */,
 				43D542FD2BB77E7B000A4281 /* ContentView.swift in Sources */,
+				43D5430B2BB78678000A4281 /* ingredientsTest.swift in Sources */,
 				43D543042BB77EE1000A4281 /* BarcodeScannerController.swift in Sources */,
 				E42126552B306B2300B5D1E6 /* ChatBubbleShape.swift in Sources */,
 				E42126522B306AA200B5D1E6 /* APIKey.swift in Sources */,
@@ -350,7 +366,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeminiMultiturnChat/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "OFFSDK-Example";
+				INFOPLIST_KEY_CFBundleDisplayName = MealWarden;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To capture product photos";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To pick photos showing product";
@@ -384,7 +400,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeminiMultiturnChat/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "OFFSDK-Example";
+				INFOPLIST_KEY_CFBundleDisplayName = MealWarden;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To capture product photos";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To pick photos showing product";
