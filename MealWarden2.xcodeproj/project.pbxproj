@@ -74,10 +74,10 @@
 		43D542FB2BB77ACF000A4281 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				431B3D7C2BBA8BAD00A47D64 /* OpenFoodFacts */,
 				43D542FC2BB77E7B000A4281 /* ContentView.swift */,
 				43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */,
 				43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */,
-				431B3D7C2BBA8BAD00A47D64 /* OpenFoodFacts */,
 				43D543052BB77EEC000A4281 /* ScannerOverlayView.swift */,
 				43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */,
 				43D5430A2BB78678000A4281 /* ingredientsTest.swift */,
