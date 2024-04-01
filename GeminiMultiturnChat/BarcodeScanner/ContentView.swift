@@ -25,11 +25,11 @@ struct ContentView: View {
         NavigationStack {
             BarcodeScannerScreen(barcode: $barcode, isCapturing: $isScanning).ignoresSafeArea(.all)
             .navigationDestination(isPresented: $isEditing, destination: {
-//                ProductPage(barcode: barcode) { uploadedProduct in
-//                    print(uploadedProduct?.json() ?? "returned product is nil")
-//                    resetState()
-//                } // need to define product page as a page that displays ingredients list when passed in a barcode string
-                ingredientsTest(barcode: barcode)
+              ingredientsTest(barcode: barcode)
+                      .onDisappear {
+                          resetState()
+                          print("State Reset Successfully")
+                      }
             })
             .onChange(of: isEditing) { newValue in
                 if newValue == false {
