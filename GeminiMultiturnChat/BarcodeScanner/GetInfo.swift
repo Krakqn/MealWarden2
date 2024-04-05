@@ -5,12 +5,13 @@
 //  Created by Akksharvan Senthilkumar on 3/31/24.
 //
 
+import Foundation
 import SwiftUI
 
-struct ingredientsTest: View {
-    @State private var productInformation: ProductInformation?
-    var barcode: String = "00723060"
-    
+struct GetInfo {
+    var barcode: String
+    var productInformation: ProductInformation?
+
     var productInfoString: String {
         guard let productInformation = productInformation else {
             return "Loading..."
@@ -32,22 +33,8 @@ struct ingredientsTest: View {
         
         return multilineString
     }
-    
-    var body: some View {
-        VStack {
-            Text(productInfoString)
-                .multilineTextAlignment(.leading)
-        }
-        .padding()
-        .onAppear {
-            let API = OpenFoodFactsAPI()
-            API.fetchData(barcode: barcode) { result in
-                self.productInformation = result
-            }
-        }
-    }
 }
 
 //#Preview {
-//    ingredientsTest()
+//    GetInfo()
 //}

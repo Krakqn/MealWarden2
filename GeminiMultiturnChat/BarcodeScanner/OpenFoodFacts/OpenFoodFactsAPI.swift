@@ -21,12 +21,6 @@ struct Product: Codable {
     let labels: String?
 }
 
-//struct Ingredient: Codable, Identifiable {
-//    let id = UUID()
-//    let vegan: String?
-//    let vegetarian: String?
-//}
-
 class OpenFoodFactsAPI {
     private var errorMessage = "Error: Unable to Find Ingredients"
     

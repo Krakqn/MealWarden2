@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var isEditing = false
     @State private var isInvalidCode = false
     @State private var isScanning = true
+    @State private var currentProduct: ProductInformation?
+    let API = OpenFoodFactsAPI()
     
     private func resetState() {
         isInvalidCode = false
@@ -25,11 +27,11 @@ struct ContentView: View {
         NavigationStack {
             BarcodeScannerScreen(barcode: $barcode, isCapturing: $isScanning).ignoresSafeArea(.all)
             .navigationDestination(isPresented: $isEditing, destination: {
-              ingredientsTest(barcode: barcode)
-                      .onDisappear {
-                          resetState()
-                          print("State Reset Successfully")
-                      }
+                TestView(tempBarcode: barcode, productInformation: currentProduct)
+                  .onDisappear {
+                      resetState()
+                      print("State Reset Successfully")
+                }
             })
             .onChange(of: isEditing) { newValue in
                 if newValue == false {
@@ -41,6 +43,9 @@ struct ContentView: View {
                 print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
                 if newValue.isAValidBarcode() {
                     isEditing = true
+                    API.fetchData(barcode: barcode) { result in
+                      self.currentProduct = result
+                    }
                 } else {
                     isInvalidCode = true
                 }
