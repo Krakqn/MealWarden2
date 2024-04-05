@@ -9,26 +9,34 @@ import SwiftUI
 
 struct ingredientsTest: View {
     @State private var productInformation: ProductInformation?
-    
     var barcode: String = "00723060"
+    
+    var productInfoString: String {
+        guard let productInformation = productInformation else {
+            return "Loading..."
+        }
+        
+        if productInformation.status_verbose == "product not found" {
+            return "Product Not Available"
+        }
+        
+        let product = productInformation.product
+        let multilineString = """
+        Product Name: \(product?.product_name ?? "")
+        Nutri-Score Grade: \(product?.nutriscore_grade ?? "")
+        Allergens: \(product?.allergens ?? "")
+        Traces: \(product?.traces ?? "")
+        Labels: \(product?.labels ?? "")
+        Ingredients: \(product?.ingredients_text ?? "")
+        """
+        
+        return multilineString
+    }
     
     var body: some View {
         VStack {
-            if let productInformation = productInformation {
-                if (productInformation.status_verbose == "product not found") {
-                    Text("Product Not Available")
-                }
-                else {
-                    Text("Product Name: \(productInformation.product?.product_name ?? "")")
-                    Text("Nutri-Score Grade: \(productInformation.product?.nutriscore_grade ?? "")")
-                    Text("Allergens: \(productInformation.product?.allergens ?? "")")
-                    Text("Traces: \(productInformation.product?.traces ?? "")")
-                    Text("Labels: \(productInformation.product?.labels ?? "")")
-                    Text("Ingredients: \(productInformation.product?.ingredients_text ?? "")")
-                }
-            } else {
-                Text("Loading...")
-            }
+            Text(productInfoString)
+                .multilineTextAlignment(.leading)
         }
         .padding()
         .onAppear {
@@ -40,6 +48,6 @@ struct ingredientsTest: View {
     }
 }
 
-#Preview {
-    ingredientsTest()
-}
+//#Preview {
+//    ingredientsTest()
+//}
