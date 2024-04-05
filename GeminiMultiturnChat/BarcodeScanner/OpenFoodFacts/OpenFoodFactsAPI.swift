@@ -19,7 +19,6 @@ struct Product: Codable {
     let allergens: String?
     let traces: String?
     let labels: String?
-    let ingredients_analysis: [String]?
 }
 
 //struct Ingredient: Codable, Identifiable {

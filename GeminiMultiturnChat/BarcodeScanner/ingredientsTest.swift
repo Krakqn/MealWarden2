@@ -10,7 +10,7 @@ import SwiftUI
 struct ingredientsTest: View {
     @State private var productInformation: ProductInformation?
     
-    var barcode: String = "9948247970"
+    var barcode: String = "00723060"
     
     var body: some View {
         VStack {
