@@ -9,6 +9,7 @@ import Foundation
 
 struct ProductInformation: Codable {
     let product: Product
+    let status_verbose: String
 }
 
 struct Product: Codable {
@@ -18,7 +19,7 @@ struct Product: Codable {
     let allergens: String?
     let traces: String?
     let labels: String?
-    let ingredients_analysis: [String: [String]]
+    let ingredients_analysis: [String]
 }
 
 //struct Ingredient: Codable, Identifiable {
@@ -30,7 +31,7 @@ struct Product: Codable {
 class OpenFoodFactsAPI {
     private var errorMessage = "Error: Unable to Find Ingredients"
     
-    func fetchData(barcode: String, completion: @escaping (Product?) -> Void) {
+    func fetchData(barcode: String, completion: @escaping (ProductInformation?) -> Void) {
         guard let url = URL(string: "https://world.openfoodfacts.org/api/v2/product/\(barcode)")
         else { completion(nil); return }
         
@@ -45,7 +46,7 @@ class OpenFoodFactsAPI {
                 else { throw NSError(domain: "NoDataError", code: 0, userInfo: nil) }
                 
                 let jsonObject = try JSONDecoder().decode(ProductInformation.self, from: data)
-                DispatchQueue.main.async { completion(jsonObject.product); return }
+                DispatchQueue.main.async { completion(jsonObject); return }
             }
             catch { completion(nil); return }
         }
