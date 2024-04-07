@@ -69,13 +69,19 @@ struct MultiturnChatView: View {
             // MARK: Input fields
             HStack {
               TextField("Enter a message...", text: $textInput, axis: .vertical)
-                    //.textFieldStyle(.roundedBorder)
-                    .focused($textIsFocused)
-                    .padding(.vertical, 10)
-                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
-                    .onTapGesture {
-                        textIsFocused = true
-                    }
+                  .focused($textIsFocused)
+                  .padding(.vertical, 10)
+                  .padding(.horizontal, 16)
+                  .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                  .background(colorScheme == .dark ? Color.gray.opacity(0.2) : Color.gray.opacity(0.1))
+                  .cornerRadius(20)
+                  .overlay(
+                      RoundedRectangle(cornerRadius: 20)
+                          .strokeBorder(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
+                  )
+                  .onTapGesture {
+                      textIsFocused = true
+                  }
               Button(action: sendMessage, label: {
                 Image(systemName: "arrow.right.circle.fill")
                   .resizable()
