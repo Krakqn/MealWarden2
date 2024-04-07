@@ -1,6 +1,15 @@
 {
-  "originHash" : "7669b2f8966bb28f27e71f730ceb651c905a1423ca2b10ddef26ad2ea12e8c4b",
+  "originHash" : "8f375c5b45f2bbf684bd3a6a3d7f489d2cd1456210f94905020cdc41b04c5943",
   "pins" : [
+    {
+      "identity" : "barcodescanner?tab=readme-ov-file",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hyperoslo/BarcodeScanner?tab=readme-ov-file",
+      "state" : {
+        "revision" : "059cd71c4e3b9efc8d7e42fa1948bf572471b448",
+        "version" : "5.0.1"
+      }
+    },
     {
       "identity" : "barcodeview",
       "kind" : "remoteSourceControl",
@@ -35,15 +44,6 @@
       "state" : {
         "branch" : "main",
         "revision" : "3801106166481a9bbda74c9c6933791e5139afbf"
-      }
-    },
-    {
-      "identity" : "pow",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/EmergeTools/Pow.git",
-      "state" : {
-        "revision" : "cc014eba4b65f689cadc281ad925de5607f2adc9",
-        "version" : "1.0.3"
       }
     },
     {
