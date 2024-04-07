@@ -7,15 +7,12 @@
 
 import SwiftUI
 import MarkdownUI
-import BarcodeScanner
 
 struct MultiturnChatView: View {
     @State var textInput = ""
     @State var logoAnimating = false
     @State var timer: Timer?
     @State var chatService = ChatService()
-    @State private var isScanningBarcode = false
-    @State private var scannedBarcode: String?
     @FocusState var textIsFocused: Bool
     @Environment (\.colorScheme) var colorScheme: ColorScheme
     
@@ -71,9 +68,7 @@ struct MultiturnChatView: View {
             
             // MARK: Input fields
             HStack {
-              Button(action: {
-                isScanningBarcode = true
-              }, label: { //need to make the action the barcode show function
+              Button(action: sendMessage, label: { //need to make the action the barcode show function
                 Image(systemName: "barcode.viewfinder")
                   .resizable()
                   .frame(width: 30, height: 30)
@@ -110,9 +105,6 @@ struct MultiturnChatView: View {
               colorScheme == .dark ? Color.black : Color.white
             }
             .ignoresSafeArea()
-        }
-        .sheet(isPresented: $isScanningBarcode) {
-          BarcodeScannerView(scannedBarcode: $scannedBarcode, isScanningBarcode: $isScanningBarcode).ignoresSafeArea(.all).interactiveDismissDisabled()
         }
     }
     

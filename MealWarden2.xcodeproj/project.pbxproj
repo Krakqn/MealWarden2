@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		431B3D7E2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B3D7D2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift */; };
 		431D092D2BBFC44B00C4F61A /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431D092C2BBFC44B00C4F61A /* testView.swift */; };
-		4348CF302BC3436F00BE2F3E /* BarcodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 4348CF2F2BC3436F00BE2F3E /* BarcodeScanner */; };
-		4348CF322BC343E300BE2F3E /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4348CF312BC343E300BE2F3E /* BarcodeScannerView.swift */; };
 		438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 438C327D2B70261300A10A4E /* MarkdownUI */; };
 		43D542FD2BB77E7B000A4281 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D542FC2BB77E7B000A4281 /* ContentView.swift */; };
 		43D543002BB77EB7000A4281 /* OpenFoodFactsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 43D542FF2BB77EB7000A4281 /* OpenFoodFactsSDK */; };
@@ -34,7 +32,6 @@
 /* Begin PBXFileReference section */
 		431B3D7D2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsAPI.swift; sourceTree = "<group>"; };
 		431D092C2BBFC44B00C4F61A /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
-		4348CF312BC343E300BE2F3E /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		43D542FC2BB77E7B000A4281 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerControllerProcessing.swift; sourceTree = "<group>"; };
 		43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerController.swift; sourceTree = "<group>"; };
@@ -59,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4348CF302BC3436F00BE2F3E /* BarcodeScanner in Frameworks */,
 				E421265B2B306E7000B5D1E6 /* GoogleGenerativeAI in Frameworks */,
 				438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */,
 				43D543002BB77EB7000A4281 /* OpenFoodFactsSDK in Frameworks */,
@@ -88,7 +84,6 @@
 				43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */,
 				43D5430A2BB78678000A4281 /* GetInfo.swift */,
 				431D092C2BBFC44B00C4F61A /* testView.swift */,
-				4348CF312BC343E300BE2F3E /* BarcodeScannerView.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -163,7 +158,6 @@
 				E421265A2B306E7000B5D1E6 /* GoogleGenerativeAI */,
 				438C327D2B70261300A10A4E /* MarkdownUI */,
 				43D542FF2BB77EB7000A4281 /* OpenFoodFactsSDK */,
-				4348CF2F2BC3436F00BE2F3E /* BarcodeScanner */,
 			);
 			productName = GeminiMultiturnChat;
 			productReference = E421263D2B306A8C00B5D1E6 /* GeminiMultiturnChat.app */;
@@ -197,7 +191,6 @@
 				E42126592B306E7000B5D1E6 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 				438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 				43D542FE2BB77EB7000A4281 /* XCRemoteSwiftPackageReference "openfoodfacts-swift" */,
-				4348CF2E2BC3436F00BE2F3E /* XCRemoteSwiftPackageReference "BarcodeScanner" */,
 			);
 			productRefGroup = E421263E2B306A8C00B5D1E6 /* Products */;
 			projectDirPath = "";
@@ -226,7 +219,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4348CF322BC343E300BE2F3E /* BarcodeScannerView.swift in Sources */,
 				43D543062BB77EEC000A4281 /* ScannerOverlayView.swift in Sources */,
 				E42126432B306A8C00B5D1E6 /* MultiturnChatView.swift in Sources */,
 				431B3D7E2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift in Sources */,
@@ -458,14 +450,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4348CF2E2BC3436F00BE2F3E /* XCRemoteSwiftPackageReference "BarcodeScanner" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hyperoslo/BarcodeScanner?tab=readme-ov-file";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
 		438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
@@ -493,11 +477,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4348CF2F2BC3436F00BE2F3E /* BarcodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4348CF2E2BC3436F00BE2F3E /* XCRemoteSwiftPackageReference "BarcodeScanner" */;
-			productName = BarcodeScanner;
-		};
 		438C327D2B70261300A10A4E /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 438C327C2B70261300A10A4E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
