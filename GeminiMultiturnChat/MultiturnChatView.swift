@@ -68,10 +68,16 @@ struct MultiturnChatView: View {
             
             // MARK: Input fields
             HStack {
+              Button(action: sendMessage, label: { //need to make the action the barcode show function
+                Image(systemName: "barcode.viewfinder")
+                  .resizable()
+                  .frame(width: 30, height: 30)
+                  .foregroundColor(Color.blue)
+              })
               TextField("Enter a message...", text: $textInput, axis: .vertical)
                   .focused($textIsFocused)
-                  .padding(.vertical, 10)
-                  .padding(.horizontal, 16)
+                  .padding(.vertical, 8) //was 10
+                  .padding(.horizontal, 14) //was 16
                   .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                   .background(colorScheme == .dark ? Color.gray.opacity(0.2) : Color.gray.opacity(0.1))
                   .cornerRadius(20)

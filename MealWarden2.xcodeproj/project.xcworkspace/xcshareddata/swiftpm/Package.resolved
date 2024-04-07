@@ -1,5 +1,5 @@
 {
-  "originHash" : "62766e0521676da21977aadf6b72c5fa0fa3d984aa4275e67b51c68c1953747d",
+  "originHash" : "7669b2f8966bb28f27e71f730ceb651c905a1423ca2b10ddef26ad2ea12e8c4b",
   "pins" : [
     {
       "identity" : "barcodeview",
@@ -35,6 +35,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "3801106166481a9bbda74c9c6933791e5139afbf"
+      }
+    },
+    {
+      "identity" : "pow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/EmergeTools/Pow.git",
+      "state" : {
+        "revision" : "cc014eba4b65f689cadc281ad925de5607f2adc9",
+        "version" : "1.0.3"
       }
     },
     {
