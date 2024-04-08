@@ -21,7 +21,6 @@ struct MultiturnChatView: View {
     @State private var barcode: String = ""
     @State private var isInvalidCode = false
     @State private var isScanning = false
-    @State private var currentProduct: ProductInformation?
     let API = OpenFoodFactsAPI()
     @State private var productInfo = ""
     
@@ -134,7 +133,7 @@ struct MultiturnChatView: View {
           print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
           if barcode.isAValidBarcode() {
               API.fetchData(barcode: barcode) { result in
-                let productDetails = GetInfo(barcode: barcode, productInformation: currentProduct)
+                let productDetails = GetInfo(barcode: barcode, productInformation: result)
                 productInfo = productDetails.productInfoString
                                 
                 if productInfo == "Product Not Available" { isInvalidCode = true }
@@ -146,23 +145,7 @@ struct MultiturnChatView: View {
             BarcodeScannerScreen(barcode: $barcode, isCapturing: $isScanning)
                 .ignoresSafeArea(.all)
         }
-//        .onChange(of: barcode) { newValue in
-//            if newValue.isEmpty { return }
-//            print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
-//            if newValue.isAValidBarcode() {
-//                isEditing = true
-//                API.fetchData(barcode: barcode) { result in
-//                  let productDetails = GetInfo(barcode: barcode, productInformation: currentProduct)
-//                  productInfo = productDetails.productInfoString
-//                  
-//                  if productInfo == "Product Not Available" { isInvalidCode = true }
-//                  else { textInput = productInfo } // Essentially this never updates to the full product list so I have no idea if productInfo is carrying the information it needs to
-//                }
-//            } else {
-//                isInvalidCode = true
-//            }
-//        }
-        .onChange(of: productInfo) { // This is always stuck at "Loading..." - for some reason it's not querying the product details properly or something
+        .onChange(of: productInfo) {
           if productInfo == "Product Not Available" { isInvalidCode = true }
           print(productInfo)
         }
