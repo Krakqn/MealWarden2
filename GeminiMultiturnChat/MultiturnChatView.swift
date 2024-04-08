@@ -130,6 +130,8 @@ struct MultiturnChatView: View {
             print("State Reset Successfully")
             return
           }
+          chatService.resetChat()
+          print("Chat Reset Successfully")
           print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
           if barcode.isAValidBarcode() {
               API.fetchData(barcode: barcode) { result in

@@ -56,5 +56,11 @@ class ChatService {
             }
         }
     }
+  
+  func resetChat() {
+          chat = nil
+          messages.removeAll()
+          loadingResponse = false
+      }
 }
 
