@@ -43,9 +43,15 @@ struct MultiturnChatView: View {
             // MARK: Chat message list
             ScrollViewReader(content: { proxy in
                 ScrollView {
-                    ForEach(chatService.messages) { chatMessage in
-                        // MARK: Chat message view
-                        chatMessageView(chatMessage)
+//                    ForEach(chatService.messages) { chatMessage in
+//                        // MARK: Chat message view
+//                        chatMessageView(chatMessage)
+//                    }
+                  ForEach(Array(chatService.messages.enumerated()), id: \.element.id) { index, chatMessage in
+                      if index > 0 { // can use this to hide messages (for providing context)
+                          // MARK: Chat message view
+                          chatMessageView(chatMessage)
+                      }
                     }
                 }
                 .onTapGesture {
