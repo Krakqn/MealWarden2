@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MarkdownUI
+import OpenFoodFactsSDK
 
 struct MultiturnChatView: View {
     @State var textInput = ""
@@ -15,6 +16,21 @@ struct MultiturnChatView: View {
     @State var chatService = ChatService()
     @FocusState var textIsFocused: Bool
     @Environment (\.colorScheme) var colorScheme: ColorScheme
+  
+    //OpenFoodFactsSDK
+    @State private var barcode: String = ""
+    @State private var isEditing = false
+    @State private var isInvalidCode = false
+    @State private var isScanning = false
+    @State private var currentProduct: ProductInformation?
+    let API = OpenFoodFactsAPI()
+    @State private var productInfo = ""
+    
+    private func resetState() {
+        isInvalidCode = false
+        barcode = ""
+        isScanning = false
+    }
     
     var body: some View {
         VStack {
@@ -68,7 +84,9 @@ struct MultiturnChatView: View {
             
             // MARK: Input fields
             HStack {
-              Button(action: sendMessage, label: { //need to make the action the barcode show function
+              Button(action: {
+                isScanning = true
+              }, label: {
                 Image(systemName: "barcode.viewfinder")
                   .resizable()
                   .frame(width: 30, height: 30)
@@ -105,6 +123,61 @@ struct MultiturnChatView: View {
               colorScheme == .dark ? Color.black : Color.white
             }
             .ignoresSafeArea()
+        }
+        .sheet(isPresented: $isScanning, onDismiss: {
+          if barcode.isEmpty {
+            resetState()
+            print("State Reset Successfully")
+            return
+          }
+          print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
+          if barcode.isAValidBarcode() {
+              isEditing = true
+              API.fetchData(barcode: barcode) { result in
+                let productDetails = GetInfo(barcode: barcode, productInformation: currentProduct)
+                productInfo = productDetails.productInfoString
+                                
+                if productInfo == "Product Not Available" { isInvalidCode = true }
+              }
+          } else {
+              isInvalidCode = true
+          }
+            resetState()
+            print("State Reset Successfully")
+        }) {
+            BarcodeScannerScreen(barcode: $barcode, isCapturing: $isScanning)
+                .ignoresSafeArea(.all)
+        }
+        .onChange(of: isEditing) { newValue in
+            if newValue == false {
+                resetState()
+            }
+        }
+//        .onChange(of: barcode) { newValue in
+//            if newValue.isEmpty { return }
+//            print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
+//            if newValue.isAValidBarcode() {
+//                isEditing = true
+//                API.fetchData(barcode: barcode) { result in
+//                  let productDetails = GetInfo(barcode: barcode, productInformation: currentProduct)
+//                  productInfo = productDetails.productInfoString
+//                  
+//                  if productInfo == "Product Not Available" { isInvalidCode = true }
+//                  else { textInput = productInfo } // Essentially this never updates to the full product list so I have no idea if productInfo is carrying the information it needs to
+//                }
+//            } else {
+//                isInvalidCode = true
+//            }
+//        }
+        .onChange(of: productInfo) { // This is always stuck at "Loading..." - for some reason it's not querying the product details properly or something
+          print(productInfo)
+        }
+        .alert("Invalid barcode", isPresented: $isInvalidCode) {
+            Button("Dismiss") {
+                resetState()
+            }
+        } message: {
+            Text("Barcode \(barcode) is invalid. Expected format should have 7,8,12 or 13 digits.")
         }
     }
     
