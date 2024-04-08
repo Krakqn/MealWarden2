@@ -19,7 +19,6 @@ struct MultiturnChatView: View {
   
     //OpenFoodFactsSDK
     @State private var barcode: String = ""
-    @State private var isEditing = false
     @State private var isInvalidCode = false
     @State private var isScanning = false
     @State private var currentProduct: ProductInformation?
@@ -85,6 +84,8 @@ struct MultiturnChatView: View {
             // MARK: Input fields
             HStack {
               Button(action: {
+                resetState()
+                print("State reset successfully")
                 isScanning = true
               }, label: {
                 Image(systemName: "barcode.viewfinder")
@@ -132,7 +133,6 @@ struct MultiturnChatView: View {
           }
           print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
           if barcode.isAValidBarcode() {
-              isEditing = true
               API.fetchData(barcode: barcode) { result in
                 let productDetails = GetInfo(barcode: barcode, productInformation: currentProduct)
                 productInfo = productDetails.productInfoString
@@ -142,16 +142,9 @@ struct MultiturnChatView: View {
           } else {
               isInvalidCode = true
           }
-            resetState()
-            print("State Reset Successfully")
         }) {
             BarcodeScannerScreen(barcode: $barcode, isCapturing: $isScanning)
                 .ignoresSafeArea(.all)
-        }
-        .onChange(of: isEditing) { newValue in
-            if newValue == false {
-                resetState()
-            }
         }
 //        .onChange(of: barcode) { newValue in
 //            if newValue.isEmpty { return }
@@ -170,6 +163,7 @@ struct MultiturnChatView: View {
 //            }
 //        }
         .onChange(of: productInfo) { // This is always stuck at "Loading..." - for some reason it's not querying the product details properly or something
+          if productInfo == "Product Not Available" { isInvalidCode = true }
           print(productInfo)
         }
         .alert("Invalid barcode", isPresented: $isInvalidCode) {
