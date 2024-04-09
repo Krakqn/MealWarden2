@@ -43,16 +43,18 @@ struct MultiturnChatView: View {
             // MARK: Chat message list
             ScrollViewReader(content: { proxy in
                 ScrollView {
-//                    ForEach(chatService.messages) { chatMessage in
-//                        // MARK: Chat message view
-//                        chatMessageView(chatMessage)
-//                    }
-                  ForEach(Array(chatService.messages.enumerated()), id: \.element.id) { index, chatMessage in
-                      if index > 0 { // can use this to hide messages (for providing context)
-                          // MARK: Chat message view
-                          chatMessageView(chatMessage)
+                    ForEach(chatService.messages) { chatMessage in
+                        // MARK: Chat message view
+                      if !chatMessage.message.contains("You are an AI assistant named MealWarden. Your task is to answer questions about the food product described below.") {
+                        chatMessageView(chatMessage)
                       }
                     }
+//                  ForEach(Array(chatService.messages.enumerated()), id: \.element.id) { index, chatMessage in
+//                      if index > 0 { // can use this to hide messages (for providing context)
+//                          // MARK: Chat message view
+//                          chatMessageView(chatMessage)
+//                      }
+//                    }
                 }
                 .onTapGesture {
                   textIsFocused = false
@@ -66,7 +68,7 @@ struct MultiturnChatView: View {
                     }
                 }
                 .onChange(of: textIsFocused) { _, _ in
-                  if (textIsFocused) {
+                  if textIsFocused {
                     guard let recentMessage = chatService.messages.last else { return }
                     DispatchQueue.main.async {
                         withAnimation {
