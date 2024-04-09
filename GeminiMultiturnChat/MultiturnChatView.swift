@@ -156,6 +156,7 @@ struct MultiturnChatView: View {
         .onChange(of: productInfo) {
           if productInfo == "Product Not Available" { isInvalidCode = true }
           print(productInfo)
+          chatService.sendMessage(productInfo)
         }
         .alert("Invalid barcode", isPresented: $isInvalidCode) {
             Button("Dismiss") {
