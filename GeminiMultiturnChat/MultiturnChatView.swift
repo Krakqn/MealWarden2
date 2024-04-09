@@ -65,6 +65,16 @@ struct MultiturnChatView: View {
                         }
                     }
                 }
+                .onChange(of: textIsFocused) { _, _ in
+                  if (textIsFocused) {
+                    guard let recentMessage = chatService.messages.last else { return }
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            proxy.scrollTo(recentMessage.id, anchor: .bottom)
+                        }
+                    }
+                  }
+                }
 //                .onChange(of: chatService.messages.count) { _ in
 //                    guard let recentMessage = chatService.messages.last else { return }
 //                    DispatchQueue.main.async {
