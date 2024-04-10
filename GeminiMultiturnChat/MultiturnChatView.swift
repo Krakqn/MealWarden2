@@ -23,6 +23,7 @@ struct MultiturnChatView: View {
     @State private var isScanning = false
     let API = OpenFoodFactsAPI()
     @State private var productInfo = ""
+    @State private var productName = ""
     
     private func resetState() {
         isInvalidCode = false
@@ -32,13 +33,45 @@ struct MultiturnChatView: View {
     
     var body: some View {
         VStack {
-            // MARK: Animating logo
-            Image(.geminiLogo)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100)
-                .opacity(logoAnimating ? 0.5 : 1)
-                .animation(.easeInOut, value: logoAnimating)
+          // MARK: Header
+          HStack {
+              HStack(spacing: 10) {
+                  // Profile picture icon
+                  Image(systemName: "person.circle.fill")
+                      .font(.system(size: 40))
+                      .foregroundColor(.gray)
+                  
+                  VStack(alignment: .leading, spacing: 2) {
+                      Text("MealWarden")
+                          .font(.system(size: 18, weight: .bold))
+                          .foregroundColor(.white)
+                      
+                      Text("Currently asking about **\(productName)**. Tap to for more information.")
+                          .font(.system(size: 14))
+                          .foregroundColor(.gray)
+                  }
+              }
+              
+              Spacer()
+              
+              Button(action: {
+                  // Handle video call button action
+              }) {
+                  Image(systemName: "video")
+                      .font(.system(size: 20))
+                      .foregroundColor(.white)
+              }
+              
+              Button(action: {
+                  // Handle phone call button action
+              }) {
+                  Image(systemName: "phone")
+                      .font(.system(size: 20))
+                      .foregroundColor(.white)
+              }
+          }
+          .padding(.horizontal, 5)
+          .background(Color.black)
             
             // MARK: Chat message list
             ScrollViewReader(content: { proxy in
@@ -163,6 +196,7 @@ struct MultiturnChatView: View {
               API.fetchData(barcode: barcode) { result in
                 let productDetails = GetInfo(barcode: barcode, productInformation: result)
                 productInfo = productDetails.productInfoString
+                productName = productDetails.productInformation?.product?.product_name ?? ""
                                 
                 if productInfo == "Product Not Available" { isInvalidCode = true }
               }
