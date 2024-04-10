@@ -40,6 +40,8 @@ struct MultiturnChatView: View {
                   Image(systemName: "person.circle.fill")
                       .font(.system(size: 40))
                       .foregroundColor(.gray)
+                      .opacity(logoAnimating ? 0.5 : 1)
+                      .animation(.easeInOut, value: logoAnimating)
                   
                   VStack(alignment: .leading, spacing: 2) {
                       Text("MealWarden")
