@@ -16,6 +16,7 @@ struct MultiturnChatView: View {
     @State var chatService = ChatService()
     @FocusState var textIsFocused: Bool
     @Environment (\.colorScheme) var colorScheme: ColorScheme
+    @Environment(\.openURL) var openURL
   
     //OpenFoodFactsSDK
     @State private var barcode: String = ""
@@ -72,7 +73,7 @@ struct MultiturnChatView: View {
               Spacer()
               
               Button(action: {
-                  // Handle video call button action
+                // action here
               }) {
                   Image(systemName: "exclamationmark.circle")
                       .font(.system(size: 25))
@@ -80,7 +81,9 @@ struct MultiturnChatView: View {
               }
               
               Button(action: {
-                  // Handle phone call button action
+                if let url = URL(string: "https://www.google.com") {
+                  openURL(url)
+                }
               }) {
                   Image(systemName: "exclamationmark.bubble.circle")
                       .font(.system(size: 25))
