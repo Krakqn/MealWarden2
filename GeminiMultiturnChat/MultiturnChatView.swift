@@ -48,9 +48,15 @@ struct MultiturnChatView: View {
                           .font(.system(size: 18, weight: .bold))
                           .foregroundColor(.white)
                       
+                    if productName == "" {
+                      Text("I'm here to help! Scan a barcode to start.")
+                          .font(.system(size: 14))
+                          .foregroundColor(.gray)
+                    } else {
                       Text("Currently asking about **\(productName)**. Tap to for more information.")
                           .font(.system(size: 14))
                           .foregroundColor(.gray)
+                    }
                   }
               }
               
