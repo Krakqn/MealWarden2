@@ -21,6 +21,7 @@ struct MultiturnChatView: View {
     @State private var barcode: String = ""
     @State private var isInvalidCode = false
     @State private var isScanning = false
+    @State private var showProductPage = false
     let API = OpenFoodFactsAPI()
     @State private var productInfo = ""
     @State private var productName = ""
@@ -36,9 +37,9 @@ struct MultiturnChatView: View {
           // MARK: Header
           HStack {
             Button(action: {
-              // Handle profile button action
-              print("Profile button tapped")
-              // Add your desired action here
+              if productName != "" {
+                showProductPage = true
+              }
             }) {
               HStack(spacing: 10) {
                 // Profile picture icon
@@ -225,8 +226,8 @@ struct MultiturnChatView: View {
         }
         .onChange(of: productInfo) {
           if productInfo == "Product Not Available" { isInvalidCode = true }
+          else { chatService.sendMessage(productInfo) }
           print(productInfo)
-          chatService.sendMessage(productInfo)
         }
         .alert("Invalid barcode", isPresented: $isInvalidCode) {
             Button("Dismiss") {
@@ -234,6 +235,11 @@ struct MultiturnChatView: View {
             }
         } message: {
             Text("Barcode \(barcode) is invalid. Expected format should have 7,8,12 or 13 digits.")
+        }
+        .sheet(isPresented: $showProductPage) {
+          ProductPage(barcode: barcode) // Known bug: When the user clicks to scan a barcode and runs
+          // resetState() (which clears the barcode), and tries to query the same product again, it fails
+          // need to find a way to make ProductPage work even when the user runs resetState()
         }
     }
     
