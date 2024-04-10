@@ -53,7 +53,7 @@ struct MultiturnChatView: View {
                           .font(.system(size: 14))
                           .foregroundColor(.gray)
                     } else {
-                      Text("Currently asking about **\(productName)**. Tap to for more information.")
+                      Text("Currently asking about **\(productName)**. Tap for more information.")
                           .font(.system(size: 14))
                           .foregroundColor(.gray)
                     }
