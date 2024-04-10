@@ -35,30 +35,38 @@ struct MultiturnChatView: View {
         VStack {
           // MARK: Header
           HStack {
+            Button(action: {
+              // Handle profile button action
+              print("Profile button tapped")
+              // Add your desired action here
+            }) {
               HStack(spacing: 10) {
-                  // Profile picture icon
-                  Image(systemName: "person.circle.fill")
-                      .font(.system(size: 40))
-                      .foregroundColor(.gray)
-                      .opacity(logoAnimating ? 0.5 : 1)
-                      .animation(.easeInOut, value: logoAnimating)
+                // Profile picture icon
+                Image(systemName: "person.circle.fill")
+                  .font(.system(size: 40))
+                  .foregroundColor(.gray)
+                  .opacity(logoAnimating ? 0.5 : 1)
+                  .animation(.easeInOut, value: logoAnimating)
+                
+                VStack(alignment: .leading, spacing: 2) {
+                  Text("MealWarden")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundColor(.white)
                   
-                  VStack(alignment: .leading, spacing: 2) {
-                      Text("MealWarden")
-                          .font(.system(size: 18, weight: .bold))
-                          .foregroundColor(.white)
-                      
-                    if productName == "" {
-                      Text("I'm here to help! Scan a barcode to start.")
-                          .font(.system(size: 14))
-                          .foregroundColor(.gray)
-                    } else {
-                      Text("Currently examining **\(productName)**. Tap for more information.")
-                          .font(.system(size: 14))
-                          .foregroundColor(.gray)
-                    }
+                  if productName == "" {
+                    Text("I'm here to help! Scan a barcode to start.")
+                      .font(.system(size: 14))
+                      .foregroundColor(.gray)
+                  } else {
+                    Text("Currently examining **\(productName)**. Tap for more information.")
+                      .font(.system(size: 14))
+                      .foregroundColor(.gray)
                   }
+                }
+                .alignmentGuide(HorizontalAlignment.leading) { d in d[.leading] }
               }
+            }
+            .buttonStyle(PlainButtonStyle())
               
               Spacer()
               
