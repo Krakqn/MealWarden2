@@ -53,7 +53,7 @@ struct MultiturnChatView: View {
                           .font(.system(size: 14))
                           .foregroundColor(.gray)
                     } else {
-                      Text("Currently asking about **\(productName)**. Tap for more information.")
+                      Text("Currently examining **\(productName)**. Tap for more information.")
                           .font(.system(size: 14))
                           .foregroundColor(.gray)
                     }
@@ -65,16 +65,16 @@ struct MultiturnChatView: View {
               Button(action: {
                   // Handle video call button action
               }) {
-                  Image(systemName: "video")
-                      .font(.system(size: 20))
+                  Image(systemName: "exclamationmark.circle")
+                      .font(.system(size: 25))
                       .foregroundColor(.white)
               }
               
               Button(action: {
                   // Handle phone call button action
               }) {
-                  Image(systemName: "phone")
-                      .font(.system(size: 20))
+                  Image(systemName: "exclamationmark.bubble.circle")
+                      .font(.system(size: 25))
                       .foregroundColor(.white)
               }
           }
