@@ -205,11 +205,12 @@ struct MultiturnChatView: View {
             .ignoresSafeArea()
         }
         .sheet(isPresented: $isScanning, onDismiss: {
-          if barcode.isEmpty {
+          if barcode.isEmpty || barcode == pastBarcode {
             resetState()
             print("State Reset Successfully")
             return
           }
+          startLoadingAnimation()
           chatService.resetChat()
           print("Chat Reset Successfully")
           print("Found barcode \(barcode) which \(barcode.isAValidBarcode() ? "Valid" : "Invalid")")
@@ -235,6 +236,7 @@ struct MultiturnChatView: View {
             pastBarcode = barcode
           }
           print(productInfo)
+          stopLoadingAnimation()
         }
         .alert("Invalid barcode", isPresented: $isInvalidCode) {
             Button("Dismiss") {
