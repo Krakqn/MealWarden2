@@ -16,7 +16,6 @@ struct MultiturnChatView: View {
     @State var chatService = ChatService()
     @FocusState var textIsFocused: Bool
     @Environment (\.colorScheme) var colorScheme: ColorScheme
-    @Environment(\.openURL) var openURL
   
     //OpenFoodFactsSDK
     @State private var barcode: String = ""
@@ -81,13 +80,14 @@ struct MultiturnChatView: View {
               }
               
               Button(action: {
-                if let url = URL(string: "https://www.google.com") {
-                  openURL(url)
-                }
+                // used Link to get rid of the conflict iwth openURL
+                // nothing should go here
               }) {
+                Link(destination: URL(string: "https://www.google.com")!) {
                   Image(systemName: "exclamationmark.bubble.circle")
                       .font(.system(size: 25))
                       .foregroundColor(.white)
+                }
               }
           }
           .padding(.horizontal, 5)
