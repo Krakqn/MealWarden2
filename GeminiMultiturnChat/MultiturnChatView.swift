@@ -124,7 +124,11 @@ struct MultiturnChatView: View {
                 .onChange(of: textIsFocused) { _, _ in
                   if textIsFocused {
                     guard let recentMessage = chatService.messages.last else { return }
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                      // keyboard apparently takes 0.3 seconds to animate
+                      // source: https://stackoverflow.com/questions/5979793/time-taken-for-keyboard-to-animate-on-ios#:~:text=I%20know%20from%20what%20I,s%2C%20and%20they%20work%20well.
+                      
+                      // so we're cheesing this by waiting 0.3 seconds before scrolling to the bottom lol
                         withAnimation {
                             proxy.scrollTo(recentMessage.id, anchor: .bottom)
                         }
