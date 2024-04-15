@@ -249,6 +249,7 @@ struct MultiturnChatView: View {
         }
         .alert("Invalid barcode", isPresented: $isInvalidCode) {
             Button("Dismiss") {
+                stopLoadingAnimation()
                 resetState()
             }
         } message: {
