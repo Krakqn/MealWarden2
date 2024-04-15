@@ -10,6 +10,8 @@
 		431B3D7E2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B3D7D2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift */; };
 		431D092D2BBFC44B00C4F61A /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431D092C2BBFC44B00C4F61A /* testView.swift */; };
 		438C327E2B70261300A10A4E /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 438C327D2B70261300A10A4E /* MarkdownUI */; };
+		439EF58A2BCD0294003CB2A5 /* FatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EF5892BCD0294003CB2A5 /* FatButton.swift */; };
+		439EF58C2BCD02C2003CB2A5 /* ProductInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EF58B2BCD02C2003CB2A5 /* ProductInfoPage.swift */; };
 		43D542FD2BB77E7B000A4281 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D542FC2BB77E7B000A4281 /* ContentView.swift */; };
 		43D543002BB77EB7000A4281 /* OpenFoodFactsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 43D542FF2BB77EB7000A4281 /* OpenFoodFactsSDK */; };
 		43D543022BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		431B3D7D2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsAPI.swift; sourceTree = "<group>"; };
 		431D092C2BBFC44B00C4F61A /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
+		439EF5892BCD0294003CB2A5 /* FatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatButton.swift; sourceTree = "<group>"; };
+		439EF58B2BCD02C2003CB2A5 /* ProductInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoPage.swift; sourceTree = "<group>"; };
 		43D542FC2BB77E7B000A4281 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43D543012BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerControllerProcessing.swift; sourceTree = "<group>"; };
 		43D543032BB77EE1000A4281 /* BarcodeScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				43D543072BB77EF8000A4281 /* BarcodeScannerScreen.swift */,
 				43D5430A2BB78678000A4281 /* GetInfo.swift */,
 				431D092C2BBFC44B00C4F61A /* testView.swift */,
+				439EF5892BCD0294003CB2A5 /* FatButton.swift */,
+				439EF58B2BCD02C2003CB2A5 /* ProductInfoPage.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D543062BB77EEC000A4281 /* ScannerOverlayView.swift in Sources */,
+				439EF58A2BCD0294003CB2A5 /* FatButton.swift in Sources */,
 				E42126432B306A8C00B5D1E6 /* MultiturnChatView.swift in Sources */,
 				431B3D7E2BBA8BE100A47D64 /* OpenFoodFactsAPI.swift in Sources */,
 				E42126562B306B2300B5D1E6 /* ChatBubble.swift in Sources */,
@@ -228,6 +235,7 @@
 				43D543042BB77EE1000A4281 /* BarcodeScannerController.swift in Sources */,
 				E42126552B306B2300B5D1E6 /* ChatBubbleShape.swift in Sources */,
 				431D092D2BBFC44B00C4F61A /* testView.swift in Sources */,
+				439EF58C2BCD02C2003CB2A5 /* ProductInfoPage.swift in Sources */,
 				E42126522B306AA200B5D1E6 /* APIKey.swift in Sources */,
 				E42126412B306A8C00B5D1E6 /* GeminiMultiturnChatApp.swift in Sources */,
 				43D543022BB77ECC000A4281 /* BarcodeScannerControllerProcessing.swift in Sources */,

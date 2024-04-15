@@ -22,6 +22,7 @@ struct MultiturnChatView: View {
     @State private var isInvalidCode = false
     @State private var isScanning = false
     @State private var showProductPage = false
+    @State private var showProductInfoPage = false
     let API = OpenFoodFactsAPI()
     @State private var productInfo = ""
     @State private var productName = ""
@@ -73,7 +74,9 @@ struct MultiturnChatView: View {
               Spacer()
               
               Button(action: {
-                // action here
+                if productName != "" {
+                  showProductInfoPage = true
+                }
               }) {
                   Image(systemName: "exclamationmark.circle")
                       .font(.system(size: 25))
@@ -253,6 +256,12 @@ struct MultiturnChatView: View {
         }
         .sheet(isPresented: $showProductPage) {
           ProductPage(barcode: pastBarcode)
+        }
+        .sheet(isPresented: $showProductInfoPage) {
+          NavigationView {
+            ProductInfoPage(open: $showProductInfoPage, productInfoString: productInfo)
+              .navigationBarTitle("Product Information", displayMode: .inline)
+          }
         }
     }
     
