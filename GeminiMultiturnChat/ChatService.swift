@@ -24,7 +24,10 @@ struct ChatMessage: Identifiable, Equatable {
 class ChatService {
     private var chat: Chat?
     private(set) var messages = [ChatMessage]()
-    private(set) var loadingResponse = false  
+    private(set) var firstMessages = [
+        ChatMessage(role: .model, message: "Hello there! I'm MealWarden, your friendly food companion. To begin, simply use the barcode button to scan any product you'd like to know more about. Whether you're curious if a product is suitable for a vegetarian diet, safe to consume with certain allergies, or have questions about specific ingredients, I'm here to help. Feel free to ask me anything food-related!")
+    ]
+    private(set) var loadingResponse = false
     
     func sendMessage(_ message: String) {
         loadingResponse = true

@@ -100,6 +100,12 @@ struct MultiturnChatView: View {
             // MARK: Chat message list
             ScrollViewReader(content: { proxy in
                 ScrollView {
+                  if productName == "" {
+                      ForEach(chatService.firstMessages) { chatMessage in
+                          // MARK: Initial message
+                          chatMessageView(chatMessage)
+                        }
+                    }
                     ForEach(chatService.messages) { chatMessage in
                         // MARK: Chat message view
                       if !chatMessage.message.contains("You are an AI assistant named MealWarden. Your task is to answer questions about the food product described below.") {
