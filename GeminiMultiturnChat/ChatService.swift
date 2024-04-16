@@ -25,7 +25,7 @@ class ChatService {
     private var chat: Chat?
     private(set) var messages = [ChatMessage]()
     private(set) var firstMessages = [
-        ChatMessage(role: .model, message: "Hello there! I'm MealWarden, your friendly food companion. To begin, simply use the barcode button to scan any product you'd like to know more about. Whether you're curious if a product is suitable for a vegetarian diet, safe to consume with certain allergies, or have questions about specific ingredients, I'm here to help. Feel free to ask me anything food-related!")
+        ChatMessage(role: .model, message: "Hi there! I'm MealWarden, your food companion. Scan any product using the barcode button to learn more about its suitability for specific diets, allergies, or to inquire about ingredients. Feel free to ask me any food-related questions!")
     ]
     private(set) var loadingResponse = false
     
